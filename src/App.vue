@@ -18,7 +18,12 @@
                                         </li>      
                                     </ul>   
                                     <br/>
-                                    <input class="form-control" type="text" placeholder="Digite o prefixo"/>
+                                    <div class="input-group">
+                                        <input class="form-control" type="text" v-model="prefix" placeholder="Digite o prefixo"/>
+                                        <div class="input-group-append">
+                                            <button class="btn btn-info" v-on:click="addPrefix(prefix)"><span class="fa fa-plus"></span></button>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -32,12 +37,18 @@
                                         </li>     
                                      </ul>   
                                      <br/>
-                                     <input class="form-control" type="text" placeholder="Digite o sufixo"/>                                                                                                            
+                                        <div class="input-group">
+                                        <input class="form-control" type="text" v-model="sufix" placeholder="Digite o sufixo"/>    
+                                        <div class="input-group-append">
+                                            <button class="btn btn-info" v-on:click="addSufix(sufix)"><span class="fa fa-plus"></span></button>
+                                        </div>
+                                    </div>                                                                                                        
                                 </div>
                             </div>
                         </div>
                     </div>
                     <br/>
+                    <h5>Resultado <span class="badge badge-info">{{ domains.length }}</span></h5>
                     <div class="card">
                         <div class="card-body">
                             <ul class="list-group">
@@ -53,19 +64,29 @@
 </template>
 
 <script>
-    import "bootstrap/dist/css/bootstrap.css"
-    import "font-awesome/css/font-awesome.css"
+import "bootstrap/dist/css/bootstrap.css";
+import "font-awesome/css/font-awesome.css";
 
-  export default {
-    name: 'app',
-    data: function (){
-        return{
-            prefixes: ['Air', 'Jet', 'Code'],
-            sufixes: ['Hub', 'House', 'Modal'],
-            domains: ['AirHub','AirHouse','AirModal','JetHub','JetHouse','JetModal', 'CodeHub', 'CodeHouse','CodeModal']
-        };
-    }
-}
+export default {
+	name: "app",
+	data: function (){
+		return{
+			prefix: "",
+			sufix: "",
+			prefixes: ["Air", "Jet", "Code"],
+			sufixes: ["Hub", "House", "Modal"],
+			domains: ["AirHub","AirHouse","AirModal","JetHub","JetHouse","JetModal", "CodeHub", "CodeHouse","CodeModal"]
+		};
+	},
+	methods: {
+		addPrefix(prefix){
+			this.prefixes.push(prefix);
+		},
+		addSufix(sufix){
+			this.sufixes.push(sufix);
+		}
+	}
+};
 </script>
 
 <style>

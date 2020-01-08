@@ -96,8 +96,8 @@ export default {
 		return{
 			prefix: "",
 			sufix: "",
-			prefixes: ["Air", "Jet", "Code"],
-			sufixes: ["Hub", "House", "Modal"]
+			prefixes: ["Air", "Jet", "Code", "Exchange"],
+			sufixes: ["Hub", "House", "Modal", "Brain"]
 		};
 	},
 	methods: {
@@ -123,7 +123,7 @@ export default {
 				for(const sufix of this.sufixes){
 					const name = prefix + sufix;
 					const url = name.toLowerCase();
-					const checkout = `${name}`;
+					const checkout = `https://www.${name}`;
 					domains.push({
 						name,
 						checkout

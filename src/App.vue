@@ -5,6 +5,7 @@
               <br/>
               <h6 class="text-secondary">Gerador de nomes Vue.js, GraphQL e Node.js</h6>
           </div>
+          <HelloWord></HelloWord>
           <div id="main">
                 <div class="container">
                     <div class="row">
@@ -89,9 +90,13 @@
 <script>
 import "bootstrap/dist/css/bootstrap.css";
 import "font-awesome/css/font-awesome.css";
+import HelloWord from "./components/HelloWorld";
 
 export default {
 	name: "app",
+	components:{
+		HelloWord
+	},
 	data: function (){
 		return{
 			prefix: "",
@@ -123,7 +128,7 @@ export default {
 				for(const sufix of this.sufixes){
 					const name = prefix + sufix;
 					const url = name.toLowerCase();
-					const checkout = `https://www.${name}`;
+					const checkout = `https://checkout.hostgator.com.br/?a=add&sld=${url}&tld=.com.br`;
 					domains.push({
 						name,
 						checkout
